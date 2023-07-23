@@ -1,47 +1,27 @@
 #include "main.h"
-#include <stdarg.h>
-#include <unistd.h>
-
-int _putchar(char c)
-{
-  return (write(1, &c, 1));
-}
-
+/**
+ * _printf - function prints output according to a format
+ * @format: the format string
+ * Return: the number of chars
+ */
 int _printf(const char *format, ...)
 {
-  va_list args;
-  int count = 0;
-
-  va_start(args, format);
-
-  while (*format)
-  {
-    if (*format == '%')
-    {
-      format++;
-
-      switch (*format)
-      {
-        case 'c':
-          count += _putchar(va_arg(args, int));
-          break;
-        case 's':
-          count += write(1, va_arg(args, const char *), strlen(va_arg(args, const char *)));
-          break;
-        case '%':
-          count += _putchar('%');
-          break;
-      }
-    }
-    else
-    {
-      count += _putchar(*format);
-    }
-
-    format++;
-  }
-
-  va_end(args);
-
-  return count;
+unsigned int i, len = 0;
+va_list args;
+if (format == NULL)
+return (-1);
+va_start(args, format);
+for (i = 0; format[i]; i++)
+{
+if (format[i] != '%')
+{
+len += _my_putchar(format[i]);
+continue;
+}
+if (i++ == strlen(format) - 1)
+return (-1);
+len += _check(format[i], args);
+}
+va_end(args);
+return (len);
 }

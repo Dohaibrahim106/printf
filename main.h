@@ -1,28 +1,87 @@
-#ifndef MAIN_H
-#define MAIN_H
-/* Start import the lib*/
-#include <stdlib.h>
+#include <limits.h>
+
 #include <stdio.h>
-#include <stdarg.h>
-#include <string.h>
-#include <unistd.h>
-/* Define STRING */
-#define STRING ((str) ? str : "(null)")
-/* Create the functions  */
-int _printf(const char *format, ...);
-int _my_putchar(char c);
-int _my_putstr(char *s);
-void _my_putint(int n);
-int _num_length(int n);
-int _check(char c, va_list args);
-int _myprint_binary(unsigned int n);
-int _printf_unsigned(va_list args);
-int _myprintf_oct(va_list val);
-int _print_hex(va_list val);
-int _print_hex_aux(unsigned long int num);
-int _myprintf_HEX(va_list val);
-int _printf_HEX_aux(unsigned int num);
+
+#include "main.h"
 
 
+/**
 
-#endif
+ * main - Entry point
+
+ *
+
+ * Return: Always 0
+
+ */
+
+int main(void)
+
+{
+
+    int len;
+
+    int len2;
+
+    unsigned int ui;
+
+    void *addr;
+
+
+    len = _printf("Let's try to printf a simple sentence.\n");
+
+    len2 = printf("Let's try to printf a simple sentence.\n");
+
+    ui = (unsigned int)INT_MAX + 1024;
+
+    addr = (void *)0x7ffe637541f0;
+
+    _printf("Length:[%d, %i]\n", len, len);
+
+    printf("Length:[%d, %i]\n", len2, len2);
+
+    _printf("Negative:[%d]\n", -762534);
+
+    printf("Negative:[%d]\n", -762534);
+
+    _printf("Unsigned:[%u]\n", ui);
+
+    printf("Unsigned:[%u]\n", ui);
+
+    _printf("Unsigned octal:[%o]\n", ui);
+
+    printf("Unsigned octal:[%o]\n", ui);
+
+    _printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
+
+    printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
+
+    _printf("Character:[%c]\n", 'H');
+
+    printf("Character:[%c]\n", 'H');
+
+    _printf("String:[%s]\n", "I am a string !");
+
+    printf("String:[%s]\n", "I am a string !");
+
+    _printf("Address:[%p]\n", addr);
+
+    printf("Address:[%p]\n", addr);
+
+    len = _printf("Percent:[%%]\n");
+
+    len2 = printf("Percent:[%%]\n");
+
+    _printf("Len:[%d]\n", len);
+
+    printf("Len:[%d]\n", len2);
+
+    _printf("Unknown:[%r]\n");
+
+    printf("Unknown:[%r]\n");
+
+    return (0);
+
+}
+
+

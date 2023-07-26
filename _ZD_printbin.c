@@ -1,10 +1,10 @@
 #include "main.h"
 /**
- * _ZD_print_binary - print a binary number
+ * _ZD_printbinary - print a binary number
  * @n: parameter is integer
  * Return: len.
  */
-int _ZD_print_binary(unsigned int n)
+int _ZD_printbinary(unsigned int n)
 {
 unsigned int m, i;
 unsigned int a[32];

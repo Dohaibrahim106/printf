@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * _ZD_my_putchar - function prints character.
+ * _ZD_putchar - function prints character.
  * @c: parameter is character
  * Return: len
  */
@@ -51,12 +51,12 @@ len++;
 return (len);
 }
 /**
- * _ZD__check - print argument
+ * _ZD_check - print argument
  * @c: the string format
  * @args: the variable arguments
  * Return: len.
  */
-int _ZD__check(char c, va_list args)
+int _ZD_check(char c, va_list args)
 {
 int num, len = 0;
 char *str;
@@ -76,7 +76,7 @@ switch (c)
 			len += _ZD_length_num(num);
 			break;
 		case 'b':
-			len += _ZD_print_binary(va_arg(args, unsigned int));
+			len += _ZD_printbinary(va_arg(args, unsigned int));
 			break;
 		case '%':
 			len += _ZD_putchar('%');

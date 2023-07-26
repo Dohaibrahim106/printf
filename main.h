@@ -8,7 +8,7 @@
 #include <stdlib.h>
 /* Define STRING */
 #define STRING ((str) ? str : "(null)")
-/* Create the functions  */
+/* Create My functions  */
 int _printf(const char *format, ...);
 int _ZD_putchar(char c);
 int _ZD_putstr(char *s);

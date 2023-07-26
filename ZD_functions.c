@@ -37,11 +37,11 @@ _ZD_putint(n1 / 10);
 _ZD_putchar((n1 % 10) + '0');
 }
 /**
- * _num_length - return the number len
+ * _ZD_length_num - return the number len
  * @n: number to be printed
  * Return: len.
  */
-int _num_length(int n)
+int _ZD_length_num(int n)
 {
 int len = 1;
 if (n < 0)
@@ -51,12 +51,12 @@ len++;
 return (len);
 }
 /**
- * _check - print argument
+ * _ZD__check - print argument
  * @c: the string format
  * @args: the variable arguments
  * Return: len.
  */
-int _check(char c, va_list args)
+int _ZD__check(char c, va_list args)
 {
 int num, len = 0;
 char *str;
@@ -73,10 +73,10 @@ switch (c)
 		case 'i':
 			num = va_arg(args, int);
 			_ZD_putint(num);
-			len += _num_length(num);
+			len += _ZD_length_num(num);
 			break;
 		case 'b':
-			len += _myprint_binary(va_arg(args, unsigned int));
+			len += _ZD_print_binary(va_arg(args, unsigned int));
 			break;
 		case '%':
 			len += _ZD_putchar('%');

@@ -16,12 +16,10 @@ for (i = 0; format[i]; i++)
 if (format[i] != '%')
 {
 len += _ZD_putchar(format[i]);
-len += _ZD_putchar(format[i]);
 continue;
 }
 if (i++ == strlen(format) - 1)
 return (-1);
-len += _ZD_check(format[i], args);
 len += _ZD_check(format[i], args);
 }
 va_end(args);
